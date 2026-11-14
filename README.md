@@ -7,6 +7,7 @@ I det här projektet har jag skapat en relationsdatabas för IT-företaget FailS
 Tanken med databasen är att samla information om företagets kunder, konsulter och uppdrag på ett bättre och mer strukturerat sätt. Databasen är skapad i SQL Server och använder primärnycklar och främmande nycklar för att koppla ihop tabellerna.
 
 ## ER-diagram
+![ER-diagram för FailSafe IT](Er-Diagram.png)
 
 ER-diagrammet visar hur databasen är uppbyggd och hur de olika tabellerna hänger ihop.
 
