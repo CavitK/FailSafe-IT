@@ -28,7 +28,7 @@ Varje kolumn innehåller ett värde och varje rad kan identifieras med en primä
 
 **2NF (Andra normalformen)**
 
-Informationen är uppdelad i olika tabeller. Kundinformation finns i Kunder och konsultinformation finns i Konsulter. På så sätt behöver samma information inte upprepas i flera uppdrag.
+Alla tabeller har en primärnyckel som består av en enda kolumn. Därför finns inga partiella beroenden och tabellerna uppfyller andra normalformen.
 
 **3NF (Tredje normalformen)**
 
