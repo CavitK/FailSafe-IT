@@ -2,55 +2,55 @@
 
 ## Om projektet
 
-Det här projektet handlar om att skapa en relationsdatabas för IT-företaget FailSafe IT.
+I det här projektet har jag skapat en relationsdatabas för IT-företaget FailSafe IT.
 
-Syftet med databasen är att hålla koll på företagets kunder, konsulter och uppdrag. Databasen är skapad i SQL Server och innehåller tabeller med primärnycklar och främmande nycklar för att koppla ihop informationen.
+Tanken med databasen är att samla information om företagets kunder, konsulter och uppdrag på ett bättre och mer strukturerat sätt. Databasen är skapad i SQL Server och använder primärnycklar och främmande nycklar för att koppla ihop tabellerna.
 
 ## ER-diagram
 
-ER-diagrammet visar hur databasen är uppbyggd och hur tabellerna hänger ihop.
+ER-diagrammet visar hur databasen är uppbyggd och hur de olika tabellerna hänger ihop.
 
 Databasen består av tre tabeller:
 
-- **Kunder** – innehåller information om företagets kunder.
-- **Konsulter** – innehåller information om konsulterna.
+- **Kunder** – sparar information om företagets kunder.
+- **Konsulter** – sparar information om konsulterna.
 - **Uppdrag** – innehåller information om uppdragen och kopplar ihop kunder med konsulter.
 
-En kund kan ha flera uppdrag och en konsult kan också ha flera uppdrag.
+En kund kan ha flera uppdrag och en konsult kan också vara kopplad till flera uppdrag.
 
 ## Normalisering
 
-Jag har normaliserat databasen för att minska onödig upprepning av information och göra databasen enklare att hantera.
+Jag har delat upp informationen i olika tabeller för att undvika att samma information behöver sparas på flera ställen.
 
 **1NF (Första normalformen)**
 
-Varje kolumn innehåller ett värde och varje rad kan identifieras med en primärnyckel. Jag har undvikit att lägga flera värden i samma kolumn.
+Varje kolumn innehåller ett värde och varje rad har en primärnyckel som gör att den kan identifieras. Jag har till exempel inte lagt flera telefonnummer eller andra värden i samma kolumn.
 
 **2NF (Andra normalformen)**
 
-Alla tabeller har en primärnyckel som består av en enda kolumn. Därför finns inga partiella beroenden och tabellerna uppfyller andra normalformen.
+Alla tabeller har en primärnyckel som består av en enda kolumn. Det innebär att det inte finns några partiella beroenden och att tabellerna uppfyller andra normalformen.
 
 **3NF (Tredje normalformen)**
 
-Information som hör till kunder och konsulter lagras i sina egna tabeller. Uppdrag använder främmande nycklar för att koppla ihop informationen. Det minskar risken för onödig duplicering och gör databasen lättare att uppdatera.
+Jag har lagt kundernas och konsult­ernas information i separata tabeller. I tabellen Uppdrag används främmande nycklar för att koppla ihop dem. På så sätt behöver jag inte spara kundens eller konsultens information flera gånger, vilket gör databasen enklare att uppdatera.
 
 ## SQL och funktioner
 
-SQL-scriptet skapar tabellerna, lägger in testdata och innehåller olika SQL-frågor.
+I SQL-scriptet skapar jag tabellerna och lägger in testdata. Jag har även skrivit SQL-frågor för att testa att databasen fungerar.
 
-Följande funktioner finns med:
+Följande saker går att göra med scriptet:
 
-- Visar konsulter med timpris över 1200 kr.
-- Visar uppdrag tillsammans med kundens och konsultens namn.
-- Räknar aktiva uppdrag för varje kund.
-- Uppdaterar timpriset för en konsult.
-- Tar bort en kund som inte har några kopplade uppdrag.
+- Visa konsulter som har ett timpris över 1200 kr.
+- Visa uppdrag tillsammans med kundens och konsultens namn.
+- Räkna hur många aktiva uppdrag varje kund har.
+- Uppdatera timpriset för en konsult.
+- Ta bort en kund som inte har några kopplade uppdrag.
 
 ## DevSecOps och säkerhet
 
-För att minska risken för SQL-injektion bör applikationen använda parametriserade SQL-frågor. Det gör att användarens inmatning behandlas som data istället för att kunna påverka själva SQL-kommandot.
+För att skydda databasen mot SQL-injektion bör applikationen använda parametriserade SQL-frågor. Då behandlas det som användaren skriver in som data och inte som en del av själva SQL-kommandot.
 
-Jag har även använt organisationsnummer som ett unikt fält i kundtabellen. Genom att använda UNIQUE skapas ett unikt index i SQL Server. Det gör det enklare att söka efter organisationsnummer och förhindrar att samma organisationsnummer läggs in flera gånger.
+Jag har också gjort organisationsnumret unikt med hjälp av UNIQUE. SQL Server skapar då ett unikt index som gör det enklare att söka efter organisationsnummer och förhindrar att samma organisationsnummer registreras flera gånger.
 
 ## Verktyg
 
